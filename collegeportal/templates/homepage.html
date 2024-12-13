@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Portal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        
+body {
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #0f8799;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.marquee {
+    background-color: #e8fbfa;
+    padding: 10px;
+    color: rgb(255, 98, 89);
+}
+
+#about {
+    padding: 60px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    line-height: 1.7;
+}
+
+#about h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #05163d;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+#about p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0 auto;
+    line-height: 1.8;
+    padding: 0 20px;
+    text-align: justify;
+}
+
+#about p:first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0c1841;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 250px; 
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 10px;
+}
+.gallery1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 22px;
+}
+
+.image-container {
+    position: relative;
+    width: 270px;
+    height: 180px;
+}
+
+.gallery1 img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+.image-desc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+.image-container:hover .image-desc {
+    opacity: 1; 
+}
+
+#activities {
+    padding: 60px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    line-height: 1.7;
+}
+
+#activities h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #05163d;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+#activities p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0 auto;
+    line-height: 1.8;
+    padding: 0 20px;
+    text-align: justify;
+}
+
+footer {
+    background-color: #0b5858;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#contact {
+    padding: 50px;
+    background-color: #e0f7fa;
+    text-align: center;
+    
+}
+
+#contact h2 {
+    margin-bottom: 30px;
+}
+
+#contact p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 15px;
+    font-size: 2rem;
+    color: #154374;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #87d7ff;
+}
+
+
+#courses {
+    padding: 30px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#courses h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #0b5858;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#courses ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#courses ul li {
+    font-size: 1rem;
+    padding: 7px;
+    margin: 5px;
+    background-color: #f3feff;
+    color: #333;
+    border-radius: 5px;
+    display: inline-block;
+    min-width: 150px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        font-size: 1.5rem;
+    }
+
+    .gallery img {
+        width: 100%; 
+        height: 70; 
+    }
+    .gallery1 {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .image-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .gallery1 img {
+        height: auto;
+    }
+    #courses ul li {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #activities {
+        padding: 10px;
+    }
+
+    #activities h2 {
+        font-size: 1.5em; 
+    }
+
+    #activities p {
+        font-size: 1em; 
+        margin-left: 0; 
+        margin-right: 0;
+    }
+    #about {
+        padding: 10px;
+    }
+
+    #about h2 {
+        font-size: 1.5em; 
+    }
+
+    #about p {
+        font-size: 1em; 
+        margin-left: 0; 
+        margin-right: 0;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    {% load static %}
+
+    <header>WELCOME TO OUR COLLEGE PORTAL</header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0f8799;">
+        <a style="color: #b4d2d5;" class="navbar-brand" href="#">College Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" >
+                    <a style="color: #b4d2d5;" class="nav-link" href="{% url 'loginpage' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: #b4d2d5;" class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: #b4d2d5;" class="nav-link" href="#activities">Activities</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: #b4d2d5;" class="nav-link" href="#courses">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: #b4d2d5;" class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="marquee">
+        <marquee>New Admission Started! Apply Now! @2024  &nbsp;&nbsp;|&nbsp;&nbsp; New Courses Started! Enroll Now with Exciting Fee Offers!</marquee>
+    </div>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Our college portal serves as the gateway to a vibrant academic community. Here, students, faculty, and staff can access essential resources, stay updated on campus news, and engage with a variety of educational tools and services. From viewing course materials and managing schedules to participating in college events and connecting with peers, our portal is designed to enhance your educational experience and keep you informed every step of the way.</p>
+    </section>
+    
+
+    
+    <section class="gallery">
+        <img src="{% static 'images/collegeportal.jpg' %}" alt="Campus Image 1">
+        <img src="{% static 'images/education.jpg' %}" alt="Campus Image 3">
+        <img src="{% static 'images/online.jpg' %}" alt="Campus Image 4">
+        <img src="{% static 'images/bridge.jpg' %}" alt="Campus Image 4">
+        <img src="{% static 'images/future.jpg' %}" alt="Campus Image 2">
+    </section>
+
+    <section id="activities">
+        <h2>College Activities</h2>
+        <p>We engage students in various extracurricular activities such as sports, cultural fests, and seminars.We believe in fostering a well-rounded education through vibrant extracurricular activities. Our students actively participate in a diverse range of events, including cultural festivals, sports competitions, and academic seminars. These activities not only enhance their learning experience but also help in building teamwork, leadership skills, and a strong sense of community.</p>
+    </section>
+
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <ul>
+            <li>Python</li>
+            <li>Django</li>
+            <li>Java</li>
+            <li>ReactJS</li>
+            <li>MERN Stack</li>
+            <li>Machine Learning</li>
+            <li>Data Science</li>
+        </ul>
+    </section>
+    <section class="gallery1">
+        <div class="image-container">
+            <img src="{% static 'images/ai.jpg' %}" alt="Campus Image 1">
+            <div class="image-desc">Artificial Intelligence</div>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/python.jpg' %}" alt="Campus Image 2">
+            <div class="image-desc">Python Programming</div>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/java.png' %}" alt="Campus Image 3">
+            <div class="image-desc">Java Development</div>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/datascience.webp' %}" alt="Campus Image 4">
+            <div class="image-desc">Data Science</div>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/django.jpg' %}" alt="Campus Image 5">
+            <div class="image-desc">Django Framework</div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Phone: +91 873438923 | Email: contact@myemail.com</p>
+        <div class="social-icons">
+            <a href="https://wa.me/91873438923" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://telegram.org" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 College portal. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

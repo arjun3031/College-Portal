@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: rgba(15, 135, 153, 0.9);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+        }
+
+        nav ul li a:hover {
+            background-color: #133838;
+            color: whitesmoke;
+        }
+
+        .banner {
+            flex: 1;
+            background-image: url("{% static 'images/college.webp' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .form-container input, .form-container button {
+            margin-bottom: 15px;
+        }
+
+        .form-container input {
+            background-color: rgb(246, 254, 255);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            color: black;
+        }
+
+        ::placeholder {
+            color: #999999;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #156e74;
+            border-color: #989a9a;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #062842;
+            border-color: #063842;
+        }
+
+        footer {
+            background-color: #0f8799;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a style="text-decoration: none;color: #ffffff;" href="{% url 'adminhome' %}">Admin Home</a></li>
+            <li><a style="text-decoration: none;color: #ffffff;" href="{% url 'showcourses' %}">Manage Course</a></li>
+        </ul>
+    </nav>
+
+    <div class="banner">
+        <div class="form-container">
+            <form action="{% url 'addcourse' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" id="cname" name="cname" placeholder="Enter course name" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="fees" name="fees" placeholder="Enter course fees" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 College portal. All Rights Reserved.
+    </footer>
+</body>
+</html>
